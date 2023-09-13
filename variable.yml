@@ -1,11 +1,3 @@
-- name: Demo on vars
-  hosts: localhost
-  vars:
-    URL: play.example.com
-  tasks:
-    - name: Print the task variable
-      ansible.builtin.debug:
-        msg: "{{ URL }}"
 
 
 - name: task level vars
