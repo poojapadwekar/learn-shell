@@ -14,3 +14,7 @@
         msg: "{{ URL }}"
       vars:
         URL: play.example.com
+
+    - name: Print the variable
+      ansible.builtin.debug:
+        msg: "{{ URL }}"
