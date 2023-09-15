@@ -1,4 +1,8 @@
-  - name: Memory good
-    ansible.builtin.debug:
-      msg: '{{ ansible_memory_mb["real"]["used"] }}'
+  - name: workstation set up
+    hosts: localhost
+    become: yes
+    tasks:
+      - name: Memory good
+        ansible.builtin.debug:
+          msg: '{{ ansible_memory_mb["real"]["used"] }}'
 
