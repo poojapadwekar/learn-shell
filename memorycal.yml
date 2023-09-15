@@ -1,4 +1,4 @@
  - name: Memory good
    ansible.builtin.debug:
-    msg: '{{ ansible_memory_mb["real"]["used"] }}'
+     msg: '{{ ansible_memory_mb["real"]["used"] }}'
 
