@@ -4,5 +4,6 @@
     tasks:
       - name: Memory good
         ansible.builtin.debug:
-          msg: '{{ ansible_memory_mb["real"]["used"] }}'
+          msg: Memory is good
+        when: ansible_memory_mb["real"]["used"] / ansible_memory_mb["real"]["total"] * 100 < 50
 
