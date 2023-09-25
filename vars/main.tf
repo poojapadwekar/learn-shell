@@ -13,6 +13,7 @@ default = {
  }
 }
 
-output "fruit" {
+output "first_fruit" {
  value = var.fruit
 }
+
