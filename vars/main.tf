@@ -14,7 +14,7 @@ default = {
 }
 
 output "first_fruit" {
- value = var.fruit(0)
+ value = var.fruit[0]
 }
 
 output "first_price" {
