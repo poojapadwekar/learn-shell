@@ -14,7 +14,7 @@ resource "aws_route53_record" "frontend1" {
   name    = "frontend1.saujpoo.online"
   type    = "A"
   ttl     = 30
-  records = [ aws_instance.web.private_ip ]
+  records = [aws_instance.frontend1.private_ip]
 }
 
 
@@ -34,7 +34,7 @@ resource "aws_route53_record" "backend1" {
   name    = "backend1.saujpoo.online"
   type    = "A"
   ttl     = 30
-  records = [ aws_instance.web.private_ip ]
+  records = [aws_instance.backend1.private_ip]
 }
 
 
@@ -54,5 +54,5 @@ resource "aws_route53_record" "mysql1" {
   name    = "mysql1.saujpoo.online"
   type    = "A"
   ttl     = 30
-  records = [ aws_instance.web.private_ip ]
+  records = [aws_instance.mysql1.private_ip]
 }
