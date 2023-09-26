@@ -7,7 +7,7 @@ resource "null_resource" "test" {
 
 resource "null_resource" "test" {
   provisioner "local-exec" {
-    command = <<'EOF'
+    command = <<EOF
     echo Hello World
     pwd
     ls -lrth
