@@ -1,22 +1,22 @@
-resource "aws_instance" "frontend" {
+resource "aws_instance" "instance" {
   ami           = local.ami
   instance_type = "t3.micro"
   vpc_security_group_ids = [data.aws_security_group.sg.id]
 
   tags = {
-    Name = "frontend"
+    Name = var.component
    }
  }
 
-  resource "aws_route53_record" "frontend" {
+  resource "aws_route53_record" "record" {
     zone_id = local.zone_id
-    name    = "frontend.${var.zone_id}"
+    name    = "${var.component}.${var.zone_id}"
     type    = "A"
     ttl     = 30
     records = [aws_instance.frontend.private_ip]
   }
 
-  resource "null_resource" "frontend" {
+  resource "null_resource" "ansible" {
     provisioner "local-exec" {
       command = <<EOF
   cd /home/centos/infra-ansible
@@ -92,5 +92,3 @@ ansible-playbook -i ${aws_instance.mysql.private_ip}, -e ansible_user=centos -e 
 EOF
   }
 }
-
-
