@@ -12,7 +12,7 @@ resource "aws_instance" "frontend1" {
 cd /home/centos/infra-ansible
 git pull
 sleep 60
-ansible-playbook -i ${self.private_ip}, -e ansible_user=centos -e ansible_password=DevOps321 main.yml -e role_name=frontend1
+ansible-playbook -i ${self.private_ip}, -e ansible_user=centos -e ansible_password=DevOps321 main.yml -e role_name=frontend
   }
 }
 
@@ -38,7 +38,7 @@ resource "aws_instance" "backend1" {
  cd /home/centos/infra-ansible
  git pull
  sleep 60
- ansible-playbook -i ${self.private_ip}, -e ansible_user=centos -e ansible_password=DevOps321 main.yml -e role_name=backend1
+ ansible-playbook -i ${self.private_ip}, -e ansible_user=centos -e ansible_password=DevOps321 main.yml -e role_name=backend
    }
 }
 
@@ -65,7 +65,7 @@ resource "aws_instance" "mysql1" {
   cd /home/centos/infra-ansible
   git pull
   sleep 60
-  ansible-playbook -i ${self.private_ip}, -e ansible_user=centos -e ansible_password=DevOps321 main.yml -e role_name=mysql1
+  ansible-playbook -i ${self.private_ip}, -e ansible_user=centos -e ansible_password=DevOps321 main.yml -e role_name=mysql
     }
 }
 
