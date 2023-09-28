@@ -4,7 +4,7 @@ resource "aws_instance" "frontend1" {
   vpc_security_group_ids = [data.aws_security_group.sg.id]
 
   tags = {
-    Name = "frontend1"
+    Name = "frontend"
   }
 
   provisioner "local-exec" {
@@ -32,7 +32,7 @@ resource "aws_instance" "backend1" {
   vpc_security_group_ids = [data.aws_security_group.sg.id]
 
   tags = {
-    Name = "backend1"
+    Name = "backend"
   }
    provisioner "local-exec" {
      command = <<EOF
@@ -60,7 +60,7 @@ resource "aws_instance" "mysql1" {
   vpc_security_group_ids = [data.aws_security_group.sg.id]
 
   tags = {
-    Name = "mysql1"
+    Name = "mysql"
   }
 
   provisioner "local-exec" {
