@@ -38,6 +38,7 @@ resource "aws_instance" "backend1" {
   tags = {
     Name = "backend"
   }
+}
 
 resource "aws_route53_record" "backend1" {
   zone_id = data.aws_route53_zone.route.zone_id
