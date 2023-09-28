@@ -1,1 +1,1 @@
-var = {component}
+variable "component" {}

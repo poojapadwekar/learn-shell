@@ -13,16 +13,17 @@ resource "aws_instance" "instance" {
     name    = "${var.component}.${var.zone_id}"
     type    = "A"
     ttl     = 30
-    records = [aws_instance.frontend.private_ip]
+    records = [aws_instance.instance.private_ip]
   }
 
   resource "null_resource" "ansible" {
+    depends_on = [aws_route53_record.record]
     provisioner "local-exec" {
       command = <<EOF
   cd /home/centos/infra-ansible
   git pull
   sleep 60
-  ansible-playbook -i ${aws_instance.instance.private_ip}, -e ansible_user=centos -e ansible_password=DevOps321 main.yml -e role_name=frontend
+  ansible-playbook -i ${aws_instance.instance.private_ip}, -e ansible_user=centos -e ansible_password=DevOps321 main.yml -e role_name=${var.component}
   EOF
   }
 }
