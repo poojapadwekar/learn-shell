@@ -19,7 +19,7 @@ variable "zone_id" {
 }
 
 
-locals {
+local {
   ami = data.aws_ami.ami.image_id
   zone_id = data.aws_route53_zone.route.zone_id
 }
