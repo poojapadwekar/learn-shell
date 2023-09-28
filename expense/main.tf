@@ -5,7 +5,8 @@ resource "aws_instance" "frontend1" {
 
   tags = {
     Name = "frontend"
-  }
+   }
+ }
 
   resource "aws_route53_record" "frontend1" {
     zone_id = data.aws_route53_zone.route.zone_id
@@ -69,6 +70,7 @@ resource "aws_instance" "mysql1" {
   tags = {
     Name = "mysql"
   }
+}
 
 
 resource "aws_route53_record" "mysql1" {
