@@ -1,5 +1,5 @@
 resource "aws_instance" "instance" {
-  ami           = local.ami
+  ami           = locals.ami
   instance_type = "t3.micro"
   vpc_security_group_ids = [data.aws_security_group.sg.id]
 
